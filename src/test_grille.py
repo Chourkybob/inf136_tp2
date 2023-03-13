@@ -124,6 +124,7 @@ def test_grille_dessiner_2():
 def test_grille_afficher_1(capsys):
     # Générer une grille de codes 6x6
     grille_codes = grille_initialiser(4, 4)
+    # print(grille_codes)
 
     # Afficher la grille et capturer la sortie
     grille_afficher(grille_codes)
@@ -137,6 +138,9 @@ def test_grille_afficher_1(capsys):
 
     # Capturer le contenu de stdout
     contenu_stdout = capsys.readouterr()
+
+    #print(contenu_stdout.out)
+    #print(grille_str)
 
     assert contenu_stdout.out == grille_str
 

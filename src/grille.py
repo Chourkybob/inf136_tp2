@@ -64,7 +64,6 @@ def grille_dessiner(grille):
     Retourne  :
         [list] : Grille contenant des symboles.
     """
-
     grille_symboles = []
 
     for i in range(len(grille)):
@@ -86,9 +85,10 @@ def grille_afficher(grille):
     Retourne  :
         Rien.
     """
+    grille_symboles = grille_dessiner(grille)
 
-    derniere_ligne = len(grille) - 1
-    largeur_grille = int(len(grille[PREMIERE_LIGNE]) / LARGEUR_CARACTERES)
+    derniere_ligne = len(grille_symboles) - 1
+    largeur_grille = int(len(grille_symboles[PREMIERE_LIGNE]) / LARGEUR_CARACTERES)
 
     # Affiche la première ligne
     print("       ", end='')
@@ -99,16 +99,16 @@ def grille_afficher(grille):
     print('')
 
     # Affiche le tableau
-    for i in range(len(grille)):
+    for i in range(len(grille_symboles)):
         chaine_caracteres = ""
         if i == PREMIERE_LIGNE:
-            print('   ' + chaine_caracteres.join(grille[i]), end='\n')
+            print('   ' + grille_symboles[i], end='\n')
 
         elif i == derniere_ligne:
-            print('   ' + chaine_caracteres.join(grille[i]), end='\n')
+            print('   ' + grille_symboles[i], end='\n')
 
         else:
-            print(f'  {i}' + chaine_caracteres.join(grille[i]), end='\n')
+            print(f'  {i}' + grille_symboles[i], end='\n')
 
 
 def grille_generer_position_aleatoire():
